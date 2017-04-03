@@ -18,10 +18,15 @@ public class DAO {
         return posts;
     }
     public static void deletePost(int id){
+        Post d = null;
         for(Post p:posts){
             if (p.getId() == id){
-                posts.remove(p);
-            } else System.out.println("Совпадений не найдено");
+                d=p;
+            }
+
+        }
+        if (d!=null){
+           posts.remove(d);
         }
     }
 }
