@@ -20,6 +20,14 @@ public class Post {
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", txt='" + txt + '\'' +
+                '}';
+    }
+
     public String getTxt() {
         return txt;
     }

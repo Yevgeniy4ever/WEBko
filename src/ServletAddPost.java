@@ -9,23 +9,24 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 /**
- * Created by Developer on 4/3/2017.
+ * Created by Developer on 4/4/2017.
  */
-@WebServlet(name = "ServletDelete", urlPatterns = "/delete")
-public class ServletDelete extends HttpServlet {
+@WebServlet(name = "ServletAddPost", urlPatterns = "/add")
+public class ServletAddPost extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        String txt = request.getParameter("txt");
         try {
-            DAO.deletePost(id);
+            DAO.addPosts(txt);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
         response.sendRedirect("/posts");
+
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
     }
 }
